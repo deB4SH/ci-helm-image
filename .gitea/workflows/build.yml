@@ -11,7 +11,7 @@ jobs:
     container:
       image: catthehacker/ubuntu:act-latest
     env:
-      DOCKER_ORG: hotbird.docker.nexus.macslabs.de/ci-helm-image
+      DOCKER_ORG: hotbird.docker.nexus.macslabs.de/docker
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
