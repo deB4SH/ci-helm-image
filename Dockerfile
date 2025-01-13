@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y helm
 # install helm push plugin
 RUN helm plugin install https://github.com/chartmuseum/helm-push
 # install cosign
-RUN wget -O cosign "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-${TARGETARCH}" \
+RUN wget -O cosign https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-${TARGETARCH} \
     && mv cosign /usr/local/bin/cosign \
     && chmod +x /usr/local/bin/cosign
 
