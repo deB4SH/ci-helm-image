@@ -12,7 +12,7 @@ RUN printf "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
     && printf "and  uname -m : " && uname -m
 #install required packages
 RUN apt update \
-    && apt install -y curl wget unzip gpg git nodejs apt-transport-https
+    && apt install -y curl wget unzip gpg git nodejs apt-transport-https yq
 # install helm
 RUN curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list
