@@ -23,7 +23,10 @@ RUN helm plugin install https://github.com/chartmuseum/helm-push
 RUN wget -O cosign https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-${TARGETARCH} \
     && mv cosign /usr/local/bin/cosign \
     && chmod +x /usr/local/bin/cosign
-
+# install tea-cli
+RUN wget -O tea https://dl.gitea.com/tea/0.10.1/tea-0.10.1-linux-${TARGETARCH} \
+    && mv tea /usr/local/bin/tea \
+    && chmod +x /usr/local/bin/tea
 #clean up leftovers
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
