@@ -27,6 +27,9 @@ RUN wget -O cosign https://github.com/sigstore/cosign/releases/download/v2.0.0/c
 RUN wget -O tea https://dl.gitea.com/tea/0.10.1/tea-0.10.1-linux-${TARGETARCH} \
     && mv tea /usr/local/bin/tea \
     && chmod +x /usr/local/bin/tea
+# install yq
+RUN wget -O /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.47.1/yq_linux_${TARGETARCH}   \ 
+    && chmod +x /usr/local/bin/yq
 #clean up leftovers
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
