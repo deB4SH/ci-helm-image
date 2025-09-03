@@ -14,9 +14,9 @@ RUN printf "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
 RUN apt update \
     && apt install -y curl wget unzip gpg git nodejs apt-transport-https yq
 # install helm
-RUN curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null
-RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list
-RUN apt-get update && apt-get install -y helm
+RUN wget -O helm.tar.gz https://get.helm.sh/helm-v3.18.6-linux-${TARGETARCH}.tar.gz \
+    && tar -xvzf helm.tar.gz \
+    && mv linux-${TARGETARCH}/helm /usr/local/bin/helm
 # install helm push plugin
 RUN helm plugin install https://github.com/chartmuseum/helm-push
 # install cosign

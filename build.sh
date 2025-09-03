@@ -26,6 +26,4 @@ else
     exit -1
 fi
 
-${cli_cmd} build . \
-    -f Dockerfile \
-    -t ghcr.io/deb4sh/ci-helm-image:$TAG
+${cli_cmd} build . -f Dockerfile -t ghcr.io/deb4sh/ci-helm-image:LATEST --build-arg TARGETARCH=amd64 
