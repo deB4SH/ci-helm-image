@@ -1,4 +1,5 @@
-FROM debian:bookworm-slim
+ARG REPOSITORY="docker.io"
+FROM ${REPOSITORY}/library/debian:trixie-slim
 LABEL org.opencontainers.image.authors="github@b4sh.de"
 #build arguments
 ARG TARGETPLATFORM
