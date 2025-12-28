@@ -31,7 +31,7 @@ jobs:
       - name: Login to hotbird Docker Registry
         uses: docker/login-action@v3
         with:
-          registry: hotbird.docker.nexus.macslabs.de
+          registry: abell.registry.macslabs.de/docker
           username: ${{ secrets.DR_ABELL_USER }}
           password: ${{ secrets.DR_ABELL_PASSWORD }}
       - name: Build and push
