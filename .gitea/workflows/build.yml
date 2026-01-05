@@ -44,6 +44,6 @@ jobs:
             linux/arm64
           push: true
           build-args: |
-            REPOSITORY="dockerhub.registry.macslabs.de"
+            REPOSITORY=dockerhub.registry.macslabs.de
           tags: |
             ${{ env.DOCKER_ORG }}/${{ steps.meta.outputs.REPO_NAME }}:${{ steps.meta.outputs.SHA_SHORT }}
