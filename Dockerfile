@@ -15,7 +15,7 @@ RUN printf "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
 RUN apt update \
     && apt install -y curl wget unzip gpg git nodejs apt-transport-https yq
 # install helm
-RUN wget -O helm.tar.gz https://get.helm.sh/helm-v3.18.6-linux-${TARGETARCH}.tar.gz \
+RUN wget -O helm.tar.gz https://get.helm.sh/helm-v4.1.1-linux-${TARGETARCH}.tar.gz \
     && tar -xvzf helm.tar.gz \
     && mv linux-${TARGETARCH}/helm /usr/local/bin/helm
 # install helm push plugin
