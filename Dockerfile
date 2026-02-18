@@ -18,14 +18,12 @@ RUN apt update \
 RUN wget -O helm.tar.gz https://get.helm.sh/helm-v4.1.1-linux-${TARGETARCH}.tar.gz \
     && tar -xvzf helm.tar.gz \
     && mv linux-${TARGETARCH}/helm /usr/local/bin/helm
-# install helm push plugin
-RUN helm plugin install https://github.com/chartmuseum/helm-push
 # install cosign
 RUN wget -O cosign https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-${TARGETARCH} \
     && mv cosign /usr/local/bin/cosign \
     && chmod +x /usr/local/bin/cosign
 # install tea-cli
-RUN wget -O tea https://dl.gitea.com/tea/0.10.1/tea-0.10.1-linux-${TARGETARCH} \
+RUN wget -O tea https://dl.gitea.com/tea/0.11.1/tea-0.11.1-linux-${TARGETARCH} \
     && mv tea /usr/local/bin/tea \
     && chmod +x /usr/local/bin/tea
 # install yq
