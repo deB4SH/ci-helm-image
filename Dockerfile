@@ -11,13 +11,16 @@ RUN printf "I'm building for TARGETPLATFORM=${TARGETPLATFORM}" \
     && printf ", TARGETVARIANT=${TARGETVARIANT} \n" \
     && printf "With uname -s : " && uname -s \
     && printf "and  uname -m : " && uname -m
-#install required packages
+# add: /usr/local/bin to path
+ENV PATH "$PATH:/usr/local/bin"
+    #install required packages
 RUN apt update \
     && apt install -y curl wget unzip gpg git nodejs apt-transport-https yq
 # install helm
 RUN wget -O helm.tar.gz https://get.helm.sh/helm-v4.1.1-linux-${TARGETARCH}.tar.gz \
     && tar -xvzf helm.tar.gz \
-    && mv linux-${TARGETARCH}/helm /usr/local/bin/helm
+    && mv linux-${TARGETARCH}/helm /usr/local/bin/helm \
+    && helm version
 # install cosign
 RUN wget -O cosign https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-${TARGETARCH} \
     && mv cosign /usr/local/bin/cosign \
